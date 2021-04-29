@@ -9,31 +9,18 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
-- script: |
-    - task: AzureCLI@2
-  inputs:
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'echo hello'e -g devops_demo -n CITEMP --command-id RunShellScript --scripts "date"
-  displayName: 'az cli command'
-
-- task: AzureCLI@2
-  inputs:
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'echo success'
-
-- task: AzureCLI@2
-  inputs:
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'ls'
+jobs: 
+- deployment: VMRunCommadn
+  displayName: RunCommand
+  # environment:
+  #   name: dev
+  #   resourceType: VirtualMachine
+  strategy:
+      rolling:
+        deploy:
+          steps:
+          - task: AzureCLI@2
+            inputs:
+              scriptType: 'ps'
+              scriptLocation: 'inlineScript'
+              inlineScript: 'az version'
