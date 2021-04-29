@@ -12,9 +12,9 @@ pool:
 jobs: 
 - deployment: VMRunCommadn
   displayName: RunCommand
-  # environment:
-  #   name: dev
-  #   resourceType: VirtualMachine
+  environment:
+     name: dev
+     resourceType: VirtualMachine
   strategy:
       rolling:
         deploy:
