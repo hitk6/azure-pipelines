@@ -19,13 +19,19 @@ steps:
   displayName: 'Run a multi-line script'
 
 - script: |
-    az vm run-command invoke -g DEVAPPLICATIONS -n test-run-command --command-id RunShellScript --scripts "date"
-  displayName: 'az cli command'  
+    - task: AzureCLI@2
+  inputs:
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'echo hello'e -g devops_demo -n CITEMP --command-id RunShellScript --scripts "date"
+  displayName: 'az cli command'
+
 - task: AzureCLI@2
   inputs:
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'echo success'
+
 - task: AzureCLI@2
   inputs:
     scriptType: 'bash'
