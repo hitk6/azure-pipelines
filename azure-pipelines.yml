@@ -9,11 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-- task: AzureCLI@2
-  inputs:
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'echo success'
+
 
 steps:
 - script: echo Hello, world!
@@ -23,7 +19,12 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
-
+  
+- task: AzureCLI@2
+  inputs:
+    scriptType: 'bash'
+    scriptLocation: 'inlineScript'
+    inlineScript: 'echo success'
 - task: AzureCLI@2
   inputs:
     scriptType: 'bash'
