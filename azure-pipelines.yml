@@ -55,7 +55,7 @@ jobs:
       AZURE_DEVOPS_CLI_PAT: $(System.AccessToken)
     displayName: 'Login Azure DevOps Extension'
 
-  - script: az devops configure --defaults organization=https://dev.azure.com/{OrganizationName} project="Movie Search Web App" --use-git-aliases true
+  - script: az devops configure --defaults organization=https://dev.azure.com/RLocman project="VMConnect" --use-git-aliases true
     displayName: 'Set default Azure DevOps organization and project'
 
   - script: |
