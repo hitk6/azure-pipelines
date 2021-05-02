@@ -63,4 +63,4 @@ jobs:
       az vm run-command invoke -g devops_demo -n CITEMP --command-id RunShellScript --scripts "date"
       az pipelines build list
       git pr list
-    displayName: 'Show build list and PRs'
+    displayName: 'VM run-command'
